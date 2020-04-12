@@ -174,7 +174,7 @@ def index():
             try:
                 print(ciphered)
                 print("-------** ",isInt(normal))
-                if(isInt(normal)):
+                if(isInt(ciphered)):
                     raise("Plain text cannot contain integers.")
             except:
                 errors2 = "Plain text cannot contain integers."
