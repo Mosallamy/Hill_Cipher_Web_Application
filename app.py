@@ -171,7 +171,14 @@ def index():
             errors2 = ""
 
             
-            
+            try:
+                print(ciphered)
+                print("-------** ",isInt(normal))
+                if(isInt(normal)):
+                    raise("Plain text cannot contain integers.")
+            except:
+                errors2 = "Plain text cannot contain integers."
+                return render_template("index.html",errors2 = errors2)
             try:
                 if not isinstance(ast.literal_eval(matrix), (list)):
                     raise("Key matrix format is not correct")
