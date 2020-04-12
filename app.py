@@ -173,7 +173,7 @@ def index():
             
             try:
                 print(ciphered)
-                print("-------** ",isInt(normal))
+                print("#$%^&*(*&^%$%^&*())")
                 if(isInt(ciphered)):
                     raise("Plain text cannot contain integers.")
             except:
