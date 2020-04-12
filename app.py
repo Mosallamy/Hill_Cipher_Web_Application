@@ -210,4 +210,4 @@ def index():
     
 #MISSISSIPPIK [[3,25],[24,17]]
 if __name__ == "__main__":
-    app.run(debug = True,host="0.0.0.0",port="3500")
+    app.run(debug = True,host="0.0.0.0")
