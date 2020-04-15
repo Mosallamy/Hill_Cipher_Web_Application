@@ -19,18 +19,7 @@ for i in range(len(letters)):
 def isSquare (m): return all (len (row) == len (m) for row in m)
 def isInt(x): return any(char.isdigit() for char in x)
 
-def encrypt(messageVector,length): 
-    for i in range(length): 
-        for j in range(1): 
-            cipherMatrix[i][j] = 0
-            for x in range(length):
-                print(keyMatrix, " i-",i, " x-",x)
-                print(keyMatrix[i][x])
-                cipherMatrix[i][j] += (keyMatrix[i][x] * 
-                                       messageVector[x][j]) 
-            cipherMatrix[i][j] = cipherMatrix[i][j] % 26
-  
-def HillCipher(message, key,length): 
+def encrypt(message, key,length): 
     global keyMatrix, cipherMatrix, messageVector, text, errors1, letters
     keyMatrix = key
     CipherText = [] 
@@ -46,7 +35,11 @@ def HillCipher(message, key,length):
         errors1 = "Plain text should contain onyl English characters"
         return render_template("index.html",errors1 = errors1)
 
-    encrypt(messageVector,length) 
+    for i in range(length): 
+                cipherMatrix[i][0] = 0
+                for x in range(length):
+                    cipherMatrix[i][0] += (keyMatrix[i][x] * messageVector[x][0]) 
+                cipherMatrix[i][0] = cipherMatrix[i][0] % 26
   
     for i in range(length): 
         CipherText.append(chr(cipherMatrix[i][0] + 65)) 
@@ -125,7 +118,7 @@ def index():
                 normal += letters[random.randrange(26)]
                             
             for i in range(int(len(normal)/(key))):
-                HillCipher(normal[(i*key):(i*key + key)], matrix,key)
+                encrypt(normal[(i*key):(i*key + key)], matrix,key)
 
             return render_template("index.html",text1=text,matrix1=matrix,errors1=errors1)
         else:
