@@ -11,7 +11,7 @@ app = Flask(__name__)
 keys = dict()
 errors1 = errors2 = text =  ""
 letters = string.ascii_uppercase
-keyMatrix = messageVector =cipherMatrix = ecryptMatrix = list()
+keyMatrix = messageVector =cipherMatrix = decryptMatrix = list()
 
 for i in range(len(letters)):
     keys[i] = letters[i]
@@ -106,6 +106,12 @@ def index():
                     raise Matrix("Not suqare")
             except:
                 errors1 = "Key matrix is not an NxN square matrix."
+                return render_template("index.html",errors1 = errors1)
+                
+            try:
+                inverse = Matrix(matrix).inv_mod(26)
+            except:
+                errors1 = "Matrix is not invertible (mod 26)"
                 return render_template("index.html",errors1 = errors1)
                 
             if(len(matrix) <= 1):
