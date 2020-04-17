@@ -72,8 +72,7 @@ def index():
     if request.method == "POST":
         global text, errors1, errors2, letters
         if "form1" in request.form:
-            text = ""
-            errors1 = ""
+            text = errors1 = ""
             numbers = list(string.ascii_uppercase)
             plain_text = request.form['normal'].replace(" ","").upper()
             matrix = request.form['matrix1']
@@ -100,8 +99,7 @@ def index():
                 encrypt(plain_text[(i*length):(i*length + length)], matrix,length)
             return render_template("index.html",text1=text,matrix1=matrix,errors1=errors1)
         else:
-            text = ""
-            errors2 = ""
+            text = errors2 = ""
             ciphered_text = request.form['ciphered'].replace(" ","").upper()
             matrix = request.form['matrix2']
             matrix3 = matrix
