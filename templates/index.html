@@ -20,8 +20,9 @@
         .center {
             margin: 0 auto;
         }
-        .black{
-        	color:black;
+
+        .black {
+            color: black;
         }
     </style>
 </head>
@@ -32,8 +33,9 @@
             <img src="../static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
             Hill Cipher
         </a>
+    </div>
 </nav>
-</div>
+
 
 <div class="row col-lg-10 col-12 d-flex justify-content-between center">
     <div class="card col-lg-5 col-12 mb-4">
@@ -46,52 +48,37 @@
                     <label for="exampleFormControlTextarea1">Plain Text</label>
                     <textarea class="form-control" name="normal" rows="3"></textarea>
                 </div>
-
-
                 <div class="form-group" id="matrix_div">
                     <hr>
                     <label for="exampleFormControlInput1">Key</label>
                     <input type="text" class="form-control" id="matrix" name="matrix1"
                            placeholder="[[1,1,1],[2,2,2],[3,3,3]]">
                 </div>
-
-
                 <button type="sumbit" class="btn btn-primary mb-2" name="form1" id="form1">Encrypt</button>
-
-
             </form>
-            {% if errors1  %}
-            
-            			<div class="card text-white bg-danger mt-3 mb-3">
-            			                          <div class="card-header black">Error</div>
-            			                          <div class="card-body">
-            			                          
-            			    <p class="card-text">
-            			    <span style="color:black"><strong>Error type: </strong></span>{{ errors1 }} <br>
-            
-            			    </p>
-            			            
-            			                                      
-            			                          </div>
-            			                        </div>
+            {% if errors1 %}
+                <div class="card text-white bg-danger mt-3 mb-3">
+                    <div class="card-header black">Error</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span style="color:black"><strong>Error type: </strong></span>{{ errors1 }} <br>
+                        </p>
+                    </div>
+                </div>
             {% elif text1 %}
-                        <div class="card text-white bg-success mt-3 mb-3">
-                          <div class="card-header black">Result</div>
-                          <div class="card-body">
-                          
-    <p class="card-text">
-    <span style="color:black"><strong>Ciphered Text: </strong></span>{{ text1 }} <br>
-    <span style="color:black"><strong>Key Matrix: </strong></span>{{ matrix1 }}
+                <div class="card text-white bg-success mt-3 mb-3">
+                    <div class="card-header black">Result</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span style="color:black"><strong>Ciphered Text: </strong></span>{{ text1 }} <br>
+                            <span style="color:black"><strong>Key Matrix: </strong></span>{{ matrix1 }}
 
-    </p>
-            
-                                      
-                          </div>
-                        </div>
-                        {% endif %}
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
-
     <div class="card col-lg-5 col-12 mb-4">
         <div class="card-header">
             <h4>Decryption</h4>
@@ -102,50 +89,36 @@
                     <label for="exampleFormControlTextarea1">Ciphered Text</label>
                     <textarea class="form-control" name="ciphered" rows="3"></textarea>
                 </div>
-
-
                 <div class="form-group" id="matrix_div">
                     <hr>
                     <label for="exampleFormControlInput1">Key</label>
                     <input type="text" class="form-control" id="matrix" name="matrix2"
                            placeholder="[[1,1,1],[2,2,2],[3,3,3]]">
                 </div>
-
                 <button type="submit" class="btn btn-primary mb-2" name="form2" id="form2">Decrypt</button>
-
-
             </form>
-			{% if errors2  %}
+            {% if errors2 %}
 
-			<div class="card text-white bg-danger mt-3 mb-3">
-			                          <div class="card-header black">Error</div>
-			                          <div class="card-body">
-			                          
-			    <p class="card-text">
-			    <span style="color:black"><strong>Error type: </strong></span>{{ errors2 }} <br>
-
-			    </p>
-			            
-			                                      
-			                          </div>
-			                        </div>
-{% elif text2 %}
-            <div class="card text-white bg-success mt-3 mb-3">
-                          <div class="card-header black">Result</div>
-                          <div class="card-body">
-                          
-    <p class="card-text">
-    <span style="color:black"><strong>Message: </strong></span>{{ text2 }} <br>
-	<span style="color:black"><strong>Key Matrix: </strong></span>{{ matrix3 }} <br>
-    <span style="color:black"><strong>Inverse Key Matrix: </strong></span>{{ matrix2 }} <br>
-
-    </p>
-            
-                                      
-                          </div>
-                        </div>
+                <div class="card text-white bg-danger mt-3 mb-3">
+                    <div class="card-header black">Error</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span style="color:black"><strong>Error type: </strong></span>{{ errors2 }} <br>
+                        </p>
+                    </div>
+                </div>
+            {% elif text2 %}
+                <div class="card text-white bg-success mt-3 mb-3">
+                    <div class="card-header black">Result</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span style="color:black"><strong>Message: </strong></span>{{ text2 }} <br>
+                            <span style="color:black"><strong>Key Matrix: </strong></span>{{ matrix3 }} <br>
+                            <span style="color:black"><strong>Inverse Key Matrix: </strong></span>{{ matrix2 }} <br>
+                        </p>
+                    </div>
+                </div>
             {% endif %}
-            
         </div>
     </div>
 </div>
@@ -161,16 +134,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<script>
-    function check(value) {
-        var matrix = document.getElementById("matrix_div")
-        if (value != 1) {
-            matrix.style.display = "none"
-        } else {
-            matrix.style.display = "block"
-        }
-
-    }
-</script>
 </body>
 </html>
